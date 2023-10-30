@@ -2,12 +2,19 @@ const express = require("express");
 
 const app = express();
 
-app.listen(8080);
+const port = 8080;
 
-app.get("/", function(req, res){
-    res.sendFile(__dirname + "/public/index.html");
+app.listen(port, () => {
+    console.log("Servidor iniciado na porta " + port)
 });
 
-app.get("/paginaTeste", function(req, res){
-    res.sendFile(__dirname + "/public/html/paginaTeste.html")
-})
+app.use(express.static(__dirname + '/public'));
+
+const indexRouter = require("./routes/indexRouter");
+const siteRouter = require("./routes/siteRouter");
+const cadastroRouter = require("./routes/cadastroRouter");
+
+
+app.use("/", indexRouter);
+app.use("/", siteRouter);
+app.use("/", cadastroRouter);

@@ -1,0 +1,70 @@
+@font-face {
+    font-family: titulos;
+    src: url(../fonts/Burbank\ Big\ Condensed\ Bold.otf);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../img/fundoTelaInicial.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.logo-pokemon {
+    width: 350px;
+    margin-left: 15%;
+    margin-top: 2.5%;
+}
+
+.titulo-projeto {
+    margin-top: 1%;
+    margin-left: 20%;
+    font-size: 50px;
+    color: purple;
+    font-family: titulos;
+}
+
+.sect-bottom {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.charizard {
+    width: 500px;
+}
+
+.div-button {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-left: 18%;
+    margin-bottom: 12%;
+}
+
+.space-button {
+    margin-top: 10%;
+}
+
+.button-style {
+    height: 50px;
+    width: 230px;
+    background-color: white;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: font-size 0.6s;
+}
+
+.button-style:hover {
+    font-size: 18px;
+}
