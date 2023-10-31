@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get("/", function(req, res){
-    res.sendFile(__dirname, "public", "index.html");
+    res.render("index");
 });
 
 module.exports = router;
