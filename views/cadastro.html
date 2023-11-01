@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,47 @@
     <link rel="stylesheet" href="../css/cadastro.css">
     <title>Iniciar Jornada</title>
 </head>
+
 <body>
-    <img src="../img/professorCarvalho.webp" class="img-professor">
+    <section>
+        <img src="../img/professorCarvalho.webp" class="img-professor" id="img_professor">
 
-    <div class="caixa-dialogo">  
-        <h1 class="nome-professor">Professor Carvalho</h1>
+        <div class="caixa-dialogo" id="caixa_dialogo">
+            <h1 class="nome-professor">Professor Carvalho</h1>
 
-        <p id="fala_professor" class="fala-professor"><span id="frase1"></span> <br> <br>
-            <span id="frase2"></span> <br> <br>
-            <span id="frase3"></span> <br>
-            <span id="frase4"></span> <br> <br>
-            <span id="frase5"></span> <br>
-            <span id="frase6"></span>
-        </p>
+            <p id="fala_professor" class="fala-professor"><span id="frase1"></span> <br> <br>
+                <span id="frase2"></span> <br> <br>
+                <span id="frase3"></span> <br>
+                <span id="frase4"></span> <br> <br>
+                <span id="frase5"></span> <br>
+                <span id="frase6"></span>
+            </p>
 
-        <button id="botao_cadastro" class="botao-cadastro">
-            Fazer cadastro
-        </button>
-    </div>
+            <button id="botao_cadastro" class="botao-cadastro">
+                Fazer cadastro
+            </button>
+        </div>
+    </section>
+
+    <section>
+        <div class="caixa-cadastro" id="caixa_cadastro">
+            <h1 class="titulo-cadastro">Cadastro</h1>
+            <form class="formulario" id="fomulario_cadastro">
+                <span class="titulos-email">Email</span>
+                <input class="inputs-formulario" type="email" placeholder="Insira o seu email" required>
+                <span class="titulos-senha">Senha</span>
+                <input class="inputs-formulario" id="senha_cadastro" type="password" placeholder="Insira sua senha" required>
+                <span class="titulos-confirmar-senha" >Confirmar senha</span>
+                <input class="inputs-formulario" id="confirma_senha" type="password" placeholder="Confirme sua senha" required>
+                <button class="botao-cadastrar" type="submit" id="botao_cadastrar">Cadastrar-se</button>
+            </form>
+            <p id="mensagem_erro_senha" class="msg-erro">A senha deve ser igual nos dois campos</p>
+
+        </div>
+    </section>
+
 </body>
+
 </html>
 
 <script src="../js/cadastro.js"></script>
