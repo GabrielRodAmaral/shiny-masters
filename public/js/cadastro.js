@@ -51,15 +51,30 @@ cadastro.addEventListener("click", () => {
 })
 
 const formulario = document.getElementById("fomulario_cadastro");
-const senha = document.getElementById("senha_cadastro")
-const confirmaSenha = document.getElementById("confirma_senha");
 const cadastrar = document.getElementById("botao_cadastrar");
-const msgErro = document.getElementById("mensagem_erro_senha")
+const msgError = document.getElementById("mensagem_erro_senha");
+const msgErrorConfirm = document.getElementById("mensagem_erro_confirmacao");
 
-formulario.addEventListener("submit", (batata) => {
-    if (senha.value!=confirmaSenha.value) {
-        batata.preventDefault();
-        msgErro.style.display = "flex";
+formulario.addEventListener("submit", (event) => {
+    let senha = document.getElementById("senha_cadastro").value;
+    let confirmaSenha = document.getElementById("confirma_senha").value;
+    let seeCapslock = false;
+    let passwordReplaced = senha.replace(/\d/g, 'a');
+
+    for (var i=0; i<senha.length; i++) {        
+        if (passwordReplaced[i] == passwordReplaced[i].toUpperCase()) {
+            seeCapslock = true;
+            break;
+        }
+    }
+
+    if (senha.length<6 || seeCapslock==false) {
+        event.preventDefault();
+        msgError.style.display = "flex";
+    } else if (senha!=confirmaSenha) {
+        event.preventDefault();
+        msgError.style.display = "none";
+        msgErrorConfirm.style.display = "flex";
     }
 })
 

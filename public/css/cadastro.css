@@ -137,9 +137,17 @@ body {
     margin-right: 60%;
 }
 
-.msg-erro {
+.msg-erro-confirm {
     display: none;
     color: red;
     font-size: 20px;
     margin-top: 15px;
+}
+
+.msg-erro-password {
+    display: none;
+    color: red;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
 }
