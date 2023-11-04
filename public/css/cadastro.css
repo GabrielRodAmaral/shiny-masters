@@ -1,12 +1,12 @@
 @font-face {
-    font-family: titulos;
+    font-family: titles;
     src: url(../fonts/Burbank\ Big\ Condensed\ Bold.otf);
 }
 
 body {
     height: 100vh;
     width: 100vw;
-    background-image: url(../img/fundoPokebolas.jpg);
+    background-image: url(../img/backgroundSite.webp);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -38,7 +38,7 @@ body {
 
 .nome-professor {
     font-size: 30px;
-    font-family: titulos;
+    font-family: titles;
     align-self: start;
     margin-left: 5%;
     margin-top: 1%;
@@ -84,7 +84,7 @@ body {
 }
 
 .titulo-cadastro {
-    font-family: titulos;
+    font-family: titles;
     font-size: 40px;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -120,19 +120,19 @@ body {
 }
 
 .titulos-confirmar-senha {
-    font-family: titulos;
+    font-family: titles;
     font-size: 20px;
     margin-right: 40%;
 }
 
 .titulos-senha {
-    font-family: titulos;
+    font-family: titles;
     font-size: 20px;
     margin-right: 60%;
 }
 
 .titulos-email {
-    font-family: titulos;
+    font-family: titles;
     font-size: 20px;
     margin-right: 60%;
 }

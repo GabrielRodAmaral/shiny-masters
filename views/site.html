@@ -1,18 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
-    <h1>Você está no site amigão, PARABAINS</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor voluptatum aut ducimus perspiciatis, ex laboriosam quam, neque odit sunt molestias eos esse? Hic ad vitae doloremque blanditiis aspernatur ut dolor.</p>
 
-    <a href="/">
-        <button>
-            Voltar para página inicial
+<body>
+    <div class="header">
+        <h1 class="shiny-masters">Shiny Masters</h1>
+        <button class="back-btn" id="back_btn">
+            Voltar para tela inicial
         </button>
-    </a>
+    </div>
+
+    <section>
+        <h1 class="titles">O que é Shiny Masters?</h1>
+        <div class="div-principal">
+            <p class="text-content">
+                Seja bem-vindo, treinador. <br> <br>
+                O Shiny Masters é o seu guia e ferramenta para se tornar um mestre em shiny hunting no mundo Pokémon.
+                <br>
+                Aqui, você encontrará dicas e métodos para facilitar a sua busca pela captura de Pokémon shiny nos jogos
+                da franquia Pokémon. <br>
+                Ao iniciar a sua jornada,você terá acesso a sua Shiny Box, uma ferramenta para registrar os Pokémon
+                shiny que você já capturou e acompanhar o seu progresso para se tornar um Shiny Master (um treinador que
+                capturou todos os Pokémon shiny de todas as regiões). <br>
+                Além disso, você receberá insígnias a cada marco importante de progresso em sua jornada.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="titles">O que é Shiny Hunt?</h1>
+        <div class="div-principal">
+            <p class="text-content">
+                Se você está familiarizado com os jogos da franquia Pokémon, provavelmente já viu algum ou ouviu falar
+                sobre os Pokémon shiny. <br>
+                Eles são Pokémon raros com coloração diferente dos outros da mesma espécie. <br>
+                Shiny hunting é o nome dado ao ato de utilizar algum método para encontrar um Pokémon shiny que você
+                deseja capturar. <br>
+                Abaixo, explicamos os métodos mais conhecidos e utilizados para encontrar um Pokémon shiny..
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="titles">Métodos de shiny hunt</h1>
+        <div class="div-methods">
+
+            <div class="text-content">
+                <h1 class="title-method"> Masuda method</h1>
+                -Chance padrão: 1 em 4.096 <br>
+                -Chance com Masuda method: 1 em 683 <br>
+                -Chance com Masuda method e shiny charm: 1 em 512
+                <br> <br>
+                O Masuda method consiste em chocar ovos de 2 Pokémon com nacionalidades diferentes, como podemos ver
+                esse método por si só já aumenta bastante a chance de encontrar um Pókemon shiny em cada ovo, porém se
+                você tiver o shiny charm, que é um item recebido ao completar a Pokédex no jogo, essas chances aumentam
+                de forma considerável. <br>
+                É bom utilizar esse método quando você deseja capturar um Pokémon shiny que é dificilmente encontrado no
+                mapa do jogo ou que não pode ser encontrado no mapa do jogo como por exemplo um Pokémon inicial.
+            </div>
+
+            <div class="text-content">
+                <h1 class="title-method"> Chain fishing</h1>
+                -Chance padrão: 1 em 4.096 <br>
+                -Chance com shiny charm: 1 em 2730
+                <br> <br>
+                Para utilizar o chain fishing você vai precisar de um Pokémon com a habilidade “Suction Cups” ou “Sticky
+                hold" (o mesmo deve estar primeira posição da sua equipe) e uma vara de pesca. <br>
+                Esté método consiste em pescar e derrotar o Pokémon que você pescou e então repetir o ciclo. <br> 
+                Todas as vezes que você pescar você terá um encontro com um Pokémon da espécie do primeiro Pokémon que você encontrou. <br>
+                Este método não interfere na probabilidade de encontrar um Pokémon shiny, porém ele cria uma sequência em que você
+                sempre encontra o mesmo Pokémon na sua pesca, então todas as vezes que você pescar terá a chance de
+                encontrar um shiny da espécie escolhida. <br>
+                Você não deve sair do jogo, capturar um Pokémon ou andar com seu personagem ou a sequência será quebrada. <br>
+                Este método é utilizado para capturar Pokémon aquáticos.
+            </div>
+
+            <div class="text-content">
+                <h1 class="title-method">Poké Radar</h1>
+                - Chance padrão: 1 em 4.096 <br>
+                - Chance com sequência de 39 Pokémon e shiny charm: 1 em 200
+                <br> <br>
+                O método de Poké Radar consiste em criar uma sequência de encontros com Pokémon de uma espécie utilizando o Poké Radar. <br>
+                Utilize um repelente para não ter encontros com Pokémon selvagens que não sejam da sequência do Poké Radar. <br>
+                Dentro de uma área de grama, utilize o Poké Radar e entre em uma das gramas que se moverem para iniciar um encontro.
+                Derrote ou capture o Pokémon para iniciar a sequência. <br>
+                Continue utilizando o Poké Radar, e vá ao encontro da grama que se mover e estiver mais longe do seu personagem (mínimo de 4 posições de distância),
+                se nenhuma grama estiver na distância mínima, apenas utilize o Poké Radar novamente. <br>
+                A grama certa sempre será um encontro com um Pokémon da espécie do Pokémon que você iniciou a sequência. <br>
+                Iniciar um encontro com um Pokémon que não seja da sequência que você está fazendo irá quebrar a sequência. <br>
+                Sair da grama irá quebrar a sequência.
+                Fugir de uma batalha irá quebrar a sequência.
+            </div>
+            
+            <div class="text-content">
+                <h1 class="title-method">Hard Reset</h1>
+                - Chance padrão: 1 em 4.096 <br>
+                - Chance com shiny charm: 1 em 2730
+                <br> <br>
+                O método de Hard Reset é uma técnica que envolve reiniciar o jogo repetidamente até encontrar um Pokémon shiny desejado. <br>
+                Cada vez que você inicia um novo jogo, existe uma probabilidade de encontrar um Pokémon shiny. <br>
+                Este método normalmente é  usado para capturar algum Pokémon que você só pode encontrar uma vez no jogo, como por exemplo os lendários<br>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h1 class="titles">Como usar a Shiny Box</h1>
+        <div class="div-principal-last">
+            <p class="text-content-last">
+                Voltando para a tela inicial e clicando em “iniciar sua jornada” caso ainda não tenha uma conta,
+                ou em “continuar sua jornada” caso já possua uma conta você entrará em sua Shiny Box. <br>
+                Lá você encontrará uma ferramenta de simples utilização para acompanhar o seu progresso em se tornar um
+                Shiny
+                Master, <br>
+                você terá acesso ao seu perfil, onde poderá ver as insígnias que você já possui e quais ainda
+                faltam. <br>
+                Também ver quais os Pokémon shiny que você já capturou, que estarão separados por região em que
+                foram adicionados a franquia, <br>
+                quando você capturar algum Pokémon shiny em um jogo e desejar adicioná-lo a
+                sua coleção na Shiny Box,
+                basta clicar em “Adicionar Pokémon” e inserir o nome do Pokémon capturado,
+                assim a sua coleção será atualizada. <br>
+                A cada 12.5% dos Pokémon que você captura de uma determinada região,
+                uma insígnia da região aparecerá em seu perfl. <br>
+                Ao completar a barra de progresso de uma região uma insígnia de campeão da região aparecerá
+                em seu perfil. <br>
+                Ao completar todas as regiões uma insígnia de Shiny Master aparecerá em seu perfil.
+            </p>
+        </div>
+    </section>
 </body>
+
 </html>
+
+<script src="../js/site.js"></script>
