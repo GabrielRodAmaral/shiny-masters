@@ -7,7 +7,7 @@ startJourney.addEventListener("click", function() {
 });
 
 continueJourney.addEventListener("click", function() {
-    window.location.href = "/site";
+    window.location.href = "/login";
 })
 
 moveToSite.addEventListener("click", function() {

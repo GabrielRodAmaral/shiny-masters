@@ -60,6 +60,7 @@ formulario.addEventListener("submit", (event) => {
     let confirmaSenha = document.getElementById("confirma_senha").value;
     let seeCapslock = false;
     let passwordReplaced = senha.replace(/\d/g, 'a');
+    
 
     for (var i=0; i<senha.length; i++) {        
         if (passwordReplaced[i] == passwordReplaced[i].toUpperCase()) {
@@ -75,6 +76,35 @@ formulario.addEventListener("submit", (event) => {
         event.preventDefault();
         msgError.style.display = "none";
         msgErrorConfirm.style.display = "flex";
+    } else {
+        msgErrorConfirm.style.display = "none";
+        event.preventDefault();
+        let email = document.getElementById("ipt_email").value;
+        let pass = document.getElementById("senha_cadastro").value;
+        const datas = {
+            email: email,
+            password: pass
+        }
+
+        fetch("/cadastro/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(datas),
+        })
+            .then ((res) => {
+                if (!res.ok) {
+                    throw new Error("Erro na solicitação " + res.status);
+                }
+                return res.json();
+            })
+            .then((result) => {
+                console.log("result: ", result);
+            }) 
+            .catch((error) => {
+                console.error("Erro na solicitação ", error);
+            })
     }
 })
 
