@@ -97,7 +97,8 @@ formulario.addEventListener("submit", (event) => {
                 if (!res.ok) {
                     throw new Error("Erro na solicitação " + res.status);
                 }
-                return res.json();
+                alert("deu boa");
+                return res.json();  
             })
             .then((result) => {
                 console.log("result: ", result);
