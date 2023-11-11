@@ -11,5 +11,12 @@ goToBox.addEventListener("click", () => {
 })
 
 logOut.addEventListener("click", () => {
-    window.location.href = "/"
+    window.location.href = "/";
+    sessionStorage.removeItem("ID_USUARIO");
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.ID_USUARIO == undefined) {
+        window.location.href = "/login";
+    }
 })

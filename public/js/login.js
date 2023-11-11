@@ -25,10 +25,9 @@ form.addEventListener("submit", (event) => {
                 console.log(json);
                 console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
-                window.location = "/ShinyBox";
+                window.location.href = "/ShinyBox";
             })
 
         } else {

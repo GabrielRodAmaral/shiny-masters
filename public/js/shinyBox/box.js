@@ -1,13 +1,13 @@
+const goToProfile = document.getElementById("btn_profile");
 const goToBadges = document.getElementById("btn_badges");
-const goToBox = document.getElementById("btn_box");
 const logOut = document.getElementById("btn_log_out");
 
-goToBadges.addEventListener("click", function() {
-    window.location.href = "/ShinyBox/insignias";
+goToProfile.addEventListener("click", function() {
+    window.location.href = "/ShinyBox";
 })
 
-goToBox.addEventListener("click", () => {
-    window.location.href = "/ShinyBox/box";
+goToBadges.addEventListener("click", () => {
+    window.location.href = "/ShinyBox/insignias"
 })
 
 logOut.addEventListener("click", () => {
@@ -20,4 +20,3 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/login";
     }
 })
-

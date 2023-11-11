@@ -73,47 +73,18 @@ body {
     background-color: black;
 }
 
-.shiny-master-badge {
+.region-title {
+    font-family: titles;
+    color: white;
+    font-size: 30px;
+}
+
+.region-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     height: auto;
     margin-top: 30px;
-}
-
-.badge-title {
-    font-family: titles;
-    color: white;
-    font-size: 30px;
-}
-
-.progress-bar-container {
-    width: 80%;
-    margin-top: 2%;
-    border: 3px solid black;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress-bar-live {
-    width: 0%;
-    height: 30px;
-    background-color: black;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    transition: width 0.5s ease-in-out;
-}
-
-.master-badge {
-    width: 50px;
-    opacity: 5%;
-    margin-top: 2%;
-}
-
-.badges-container {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
