@@ -11,12 +11,13 @@ goToBadges.addEventListener("click", () => {
 })
 
 logOut.addEventListener("click", () => {
+    console.log("LogOut realizado");
     window.location.href = "/";
     sessionStorage.removeItem("ID_USUARIO");
 })
 
 document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
-        window.location.href = "/login";
+        window.location.href = "/loginNaoEncontrado";
     }
 })

@@ -20,9 +20,11 @@ const siteRouter = require("./src/routes/siteRouter");
 const cadastroRouter = require("./src/routes/cadastroRouter");
 const loginRouter = require("./src/routes/loginRouter");
 const shinyBoxRouter = require("./src/routes/shinyBoxRouter");
+const loginNaoEncontrado = require("./src/routes/loginNaoEncontradoRouter");
 
 app.use("/", indexRouter);
 app.use("/site", siteRouter);
 app.use("/cadastro", cadastroRouter);
 app.use("/login", loginRouter);
 app.use("/ShinyBox", shinyBoxRouter);
+app.use("/loginNaoEncontrado", loginNaoEncontrado);
