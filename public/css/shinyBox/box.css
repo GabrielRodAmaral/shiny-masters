@@ -88,3 +88,33 @@ body {
     margin-top: 30px;
     flex-wrap: wrap;
 }
+
+.div-register-pokemon {
+    display: flex;
+}
+
+.ipt-insert-pokemon {
+    height: 30px;
+    width: 300px;
+    font-family: titles;
+    font-size: 20px;
+    text-align: center;
+    border: solid 3px gray;
+    border-radius: 10px 0 0 10px;
+}
+
+.btn-insert-pokemon {
+    font-family: titles;
+    font-size: 18px;
+    height: 38px;
+    width: 150px;
+    cursor: pointer;
+    background-color: white;
+    border: solid 3px gray;
+    transition: font-size 0.6s;
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-insert-pokemon:hover {
+    font-size: 20px;
+}
