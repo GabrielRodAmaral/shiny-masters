@@ -14,11 +14,17 @@ logOut.addEventListener("click", () => {
     console.log("LogOut realizado");
     window.location.href = "/";
     sessionStorage.removeItem("ID_USUARIO");
+    sessionStorage.removeItem("EMAIL_USUARIO");
+    sessionStorage.removeItem("FK_SHINY_BOX");
 })
 
 document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
+    } else {
+        console.log(sessionStorage.EMAIL_USUARIO, sessionStorage.ID_USUARIO, sessionStorage.FK_SHINY_BOX);
     }
 })
+
+
 

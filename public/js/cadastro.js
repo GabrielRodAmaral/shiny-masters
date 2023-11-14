@@ -97,7 +97,8 @@ formulario.addEventListener("submit", (event) => {
                 if (!res.ok) {
                     throw new Error("Erro na solicitação " + res.status);
                 }
-                alert("deu boa");
+                alert("Cadastro feito com sucesso, redirecionando para tela de login.");
+                window.location.href = "/login";
                 return res.json();  
             })
             .then((result) => {

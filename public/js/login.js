@@ -22,10 +22,9 @@ form.addEventListener("submit", (event) => {
             console.log("dentro do then res.ok no login")
 
             res.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.FK_SHINY_BOX = json.fkShinyBox;
 
                 window.location.href = "/ShinyBox";
             })
