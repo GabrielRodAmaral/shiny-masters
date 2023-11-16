@@ -62,4 +62,27 @@ function enterBox(req, res) {
     }
 }
 
-module.exports = {register, enterBox};
+function getPokes(req, res) {
+    let fkBox = req.body.fkBox;
+
+    if (fkBox == undefined) {
+        res.status(400).send("fkBox não foi definida");
+    } else {
+        model.getPokes(fkBox)
+        .then((result) => {
+            if (result) {
+                res.json({
+                    pokemon: result
+                })
+            } else {
+                res.status(403).send("Pokemons não encontrados")
+            }
+        }) .catch((error) => {
+            console.log(error);
+            console.log("Erro: ", error.sqlMessage);
+            res.status(500).json(error.sqlMessage);
+        })
+    }
+}
+
+module.exports = {register, enterBox, getPokes};

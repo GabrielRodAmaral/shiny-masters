@@ -13,4 +13,8 @@ router.post("/enter", (req, res) => {
     usuarioController.enterBox(req, res);
 })
 
+router.post("/getPoke", (req, res) => {
+    usuarioController.getPokes(req, res);
+})
+
 module.exports = router;

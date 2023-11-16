@@ -64,4 +64,28 @@ function enterBox(email, password) {
     });
 }
 
-module.exports = { register, enterBox, register2};
+function getPokes(fkBox) {
+    let sqlCommand = `
+    SELECT fkPokemon FROM captura WHERE fkShinyBox = ${fkBox}
+    `;
+
+    return new Promise((resolve, reject) => {
+        database.query(sqlCommand, (error, result) => {
+            if (error) {
+                console.error("Erro ao consultar dados:", error);
+                reject(error);
+            } else {
+                if (result.length > 0) {
+                    console.log("Pokémon encontrados");
+                    resolve(result);
+                } else {
+                    console.log(result.length)
+                    console.log("Nenhum Pokémon encontrado");
+                    resolve(result);
+            }
+            }
+        });
+    });
+}
+
+module.exports = { register, enterBox, register2, getPokes};

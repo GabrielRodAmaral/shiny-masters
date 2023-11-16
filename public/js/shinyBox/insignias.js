@@ -13,7 +13,7 @@ goToBox.addEventListener("click", () => {
 logOut.addEventListener("click", () => {
     console.log("LogOut realizado");
     window.location.href = "/";
-    sessionStorage.removeItem("ID_USUARIO");
+    sessionStorage.clear();
 })
 
 document.addEventListener("DOMContentLoaded", () => {
