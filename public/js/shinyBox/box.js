@@ -1,4 +1,5 @@
-let pokeStorage = JSON.parse(sessionStorage.getItem('pokeStorage')) || [];
+let pokeStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
+
 
 const goToProfile = document.getElementById("btn_profile");
 const goToBadges = document.getElementById("btn_badges");
@@ -21,9 +22,50 @@ logOut.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
+    } else {
+        renderSprites();
     }
 })
 
+function renderSprites() {
+    let pokeStorageIntern = pokeStorage.map(pokemon => {
+        if (typeof pokemon == 'object') {
+            return pokemon.fkPokemon
+        }
+        return pokemon;
+    });
+    for(let i=0; i<pokeStorageIntern.length; i++) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokeStorageIntern[i]}`)
+        .then(result => {
+            if (!result.ok) {
+                throw new Error(`Não foi possível obter informações sobre o Pokémon ${pokeStorageIntern[i]}`);
+            }
+            return result.json();
+        })
+        .then(result => {
+            const pokeSprite = result.sprites.front_shiny;
+            if (pokeStorageIntern[i]<152) {
+                box_kanto.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else if (pokeStorageIntern[i]<252) {
+                box_johto.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else if (pokeStorageIntern[i]<387) {
+                box_hoenn.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else if (pokeStorageIntern[i]<494) {
+                box_sinnoh.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else if (pokeStorageIntern[i]<650) {
+                box_unova.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else if (pokeStorageIntern[i]<722) {
+                box_kalos.innerHTML += `<img src="${pokeSprite}"></img>`;
+            } else {
+                box_galar.innerHTML += `<img src="${pokeSprite}"></img>`;
+            }
+        })
+        .catch(error => {
+            console.error("Erro na function do fetch: " + error.message);
+            throw error;
+        })
+    }
+}
 
 function getPokemonData(pokeName) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
@@ -57,7 +99,16 @@ btnAddPoke.addEventListener("click", function addPokemon() {
             let pokeId = Number(pokeInfo.pokeId);
             let pokeSprite = pokeInfo.pokeSprite;
             let idShinyBox = sessionStorage.FK_SHINY_BOX;
-            if (pokeId < 152) {
+
+            let pokeStorageIntern = pokeStorage.map(pokemon => {
+        if (typeof pokemon == 'object') {
+            return pokemon.fkPokemon
+        }
+        return pokemon;
+    });
+            if (pokeStorage.includes(pokeId) || pokeStorageIntern.includes(pokeId)) {
+                alert(`Pokémon com ID ${pokeId} já existe em pokeStorage. Ignorando a inserção.`);
+            } else if (pokeId < 152) {
                 box_kanto.innerHTML += `<img src="${pokeInfo.pokeSprite}"></img>`;
                 
                 let pokeDatas = {
@@ -78,7 +129,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -110,7 +162,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -142,7 +195,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -174,7 +228,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -206,7 +261,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -238,7 +294,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -272,7 +329,8 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
-                            sessionStorage.setItem('pokeStorage', JSON.stringify(pokeStorage));
+                            sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
+                            alert("Pokémon adicionado com sucesso")
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
