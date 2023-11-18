@@ -77,13 +77,15 @@ body {
     font-family: titles;
     color: white;
     font-size: 30px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .region-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: auto;
     height: auto;
     margin-top: 30px;
     flex-wrap: wrap;

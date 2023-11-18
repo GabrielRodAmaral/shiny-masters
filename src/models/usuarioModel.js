@@ -66,7 +66,7 @@ function enterBox(email, password) {
 
 function getPokes(fkBox) {
     let sqlCommand = `
-    SELECT fkPokemon FROM captura WHERE fkShinyBox = ${fkBox}
+    SELECT pokemon.idPokemon FROM pokemon JOIN captura ON pokemon.id=captura.fkPokemon WHERE captura.fkShinyBox = ${fkBox}
     `;
 
     return new Promise((resolve, reject) => {

@@ -19,5 +19,11 @@ logOut.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
+    } else {
+        countRegions()
     }
 })
+
+function countRegions() {
+
+}

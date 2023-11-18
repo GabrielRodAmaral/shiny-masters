@@ -1,5 +1,5 @@
 let pokeStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
-pokeStorage = pokeStorage.map(pokemon => pokemon.fkPokemon);
+pokeStorage = pokeStorage.map(pokemon => pokemon.idPokemon);
 
 let pokeStorageLength = pokeStorage.length
 

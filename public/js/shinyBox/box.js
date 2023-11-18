@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderSprites() {
     let pokeStorageIntern = pokeStorage.map(pokemon => {
         if (typeof pokemon == 'object') {
-            return pokemon.fkPokemon
+            return pokemon.idPokemon
         }
         return pokemon;
     });
@@ -102,7 +102,7 @@ btnAddPoke.addEventListener("click", function addPokemon() {
 
             let pokeStorageIntern = pokeStorage.map(pokemon => {
         if (typeof pokemon == 'object') {
-            return pokemon.fkPokemon
+            return pokemon.idPokemon
         }
         return pokemon;
     });

@@ -19,7 +19,9 @@ function registerPoke(req, res) {
         model.registerPoke (pokeId, pokeName, pokeSprite, fkRegion, idShinyBox)
             .then(
                 (result) => {
+                    let idCreated = result.insertId
                     res.json(result);
+                    model.registerPoke2(idShinyBox, idCreated)
                 }).catch(
                 (error) => {
                     console.log(error);
