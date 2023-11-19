@@ -21,5 +21,8 @@ router.post("/registerPoke", (req, res) => {
     shinyBoxController.registerPoke(req, res);
 })
 
+router.post("/countAllPokemon", (req, res) => {
+    shinyBoxController.countAllPokemon(req, res);
+})
 
 module.exports = router;

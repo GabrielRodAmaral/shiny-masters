@@ -1,5 +1,12 @@
-let pokeStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
+window.addEventListener("DOMContentLoaded", () => {
+    if (sessionStorage.ID_USUARIO == undefined) {
+        window.location.href = "/loginNaoEncontrado";
+    } else {
+        renderSprites();
+    }
+})
 
+let pokeStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
 
 const goToProfile = document.getElementById("btn_profile");
 const goToBadges = document.getElementById("btn_badges");
@@ -17,14 +24,6 @@ logOut.addEventListener("click", () => {
     console.log("LogOut realizado");
     window.location.href = "/";
     sessionStorage.clear();
-})
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (sessionStorage.ID_USUARIO == undefined) {
-        window.location.href = "/loginNaoEncontrado";
-    } else {
-        renderSprites();
-    }
 })
 
 function renderSprites() {

@@ -57,7 +57,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 30px;
 }
 
 .catched-pkmn {
@@ -66,7 +66,7 @@ body {
     font-size: 40px;
 }
 
-.page-content button{
+.button-content{
     width: 300px;
     height: 60px;
     font-family: titles;
@@ -78,6 +78,12 @@ body {
     transition: font-size 0.6s;
 }
 
-.page-content button:hover{
+.button-content:hover{
     font-size: 32px
+}
+
+.graphic1 {
+    position: absolute;
+    margin-left: 16vw;
+    margin-top: 55vh;
 }

@@ -27,34 +27,40 @@
         </button>
     </div>
 
-    <h1 class="page-title">INSÍGNIAS</h1>
+    <h1 id="page_title" class="page-title">INSÍGNIAS</h1>
 
     <section class="page-content">
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnia de Shiny Master</h1>
+            <div class="progress-bar-container">
+                <div id="progress_bar_master_text" class="progress-bar-text"></div>
+                <div id="progress_bar_master" class="progress-bar-live"></div>
+            </div>
             <img id="master_badge" class="master-badge" src="/img/insignias/pokebolas/masterBall.png">
         </div>
 
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Campeão</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_champion_badges" class="progress-bar-live">0%</div>
+                <div id="progress_bar_champion_text" class="progress-bar-text"></div>
+                <div id="progress_bar_champion" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
-            <img id="champio_badge1" class="master-badge" src="/img/insignias/pokebolas/pokeBall.png">
-            <img id="champio_badge2" class="master-badge" src="/img/insignias/pokebolas/greatBall.webp">
-            <img id="champio_badge3" class="master-badge" src="/img/insignias/pokebolas/ultraBall.png">
-            <img id="champio_badge4" class="master-badge" src="/img/insignias/pokebolas/luxuryBall.png">
-            <img id="champio_badge5" class="master-badge" src="/img/insignias/pokebolas/timerBall.png">
-            <img id="champio_badge6" class="master-badge" src="/img/insignias/pokebolas/quickBall.webp">
-            <img id="champio_badge7" class="master-badge" src="/img/insignias/pokebolas/duskBall.png">
+            <img id="champion_badge1" class="master-badge" src="/img/insignias/pokebolas/pokeBall.png">
+            <img id="champion_badge2" class="master-badge" src="/img/insignias/pokebolas/greatBall.webp">
+            <img id="champion_badge3" class="master-badge" src="/img/insignias/pokebolas/ultraBall.png">
+            <img id="champion_badge4" class="master-badge" src="/img/insignias/pokebolas/luxuryBall.png">
+            <img id="champion_badge5" class="master-badge" src="/img/insignias/pokebolas/timerBall.png">
+            <img id="champion_badge6" class="master-badge" src="/img/insignias/pokebolas/quickBall.webp">
+            <img id="champion_badge7" class="master-badge" src="/img/insignias/pokebolas/duskBall.png">
         </div>
         </div>
 
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Kanto</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_kanto" class="progress-bar-live">0%</div>
+                <div id="progress_bar_kanto_text" class="progress-bar-text"></div>
+                <div id="progress_bar_kanto" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="kanto_badge1" class="master-badge" src="/img/insignias/kanto/brock.webp">
@@ -71,7 +77,8 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Johto</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_johto" class="progress-bar-live">0%</div>
+                <div id="progress_bar_johto_text" class="progress-bar-text"></div>
+                <div id="progress_bar_johto" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="johto_badge1" class="master-badge" src="/img/insignias/johto/falkner.webp">
@@ -88,7 +95,9 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Hoenn</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_hoenn" class="progress-bar-live">0%</div>
+                <div id="progress_bar_hoenn_text" class="progress-bar-text"></div>
+                <div class="progress-bar-text"></div>
+                <div id="progress_bar_hoenn" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="hoenn_badge1" class="master-badge" src="/img/insignias/hoenn/roxanne.webp">
@@ -105,7 +114,8 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Sinnoh</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_sinnoh" class="progress-bar-live">0%</div>
+                <div id="progress_bar_sinnoh_text" class="progress-bar-text"></div>
+                <div id="progress_bar_sinnoh" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="sinnoh_badge1" class="master-badge" src="/img/insignias/sinnoh/roark.webp">
@@ -122,7 +132,8 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Unova</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_unova" class="progress-bar-live">0%</div>
+                <div id="progress_bar_unova_text" class="progress-bar-text"></div>
+                <div id="progress_bar_unova" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="unova_badge1" class="master-badge" src="/img/insignias/unova/chili.webp">
@@ -139,7 +150,8 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Kalos</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_kalos" class="progress-bar-live">0%</div>
+                <div id="progress_bar_kalos_text" class="progress-bar-text"></div>
+                <div id="progress_bar_kalos" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="kalos_badge1" class="master-badge" src="/img/insignias/kalos/viola.webp">
@@ -156,7 +168,8 @@
         <div class="shiny-master-badge">
             <h1 class="badge-title">Insígnias de Galar</h1>
             <div class="progress-bar-container">
-                <div id="progress_bar_galar" class="progress-bar-live">0%</div>
+                <div id="progress_bar_galar_text" class="progress-bar-text"></div>
+                <div id="progress_bar_galar" class="progress-bar-live"></div>
             </div>
         <div class="badges-container">
             <img id="galar_badge1" class="master-badge" src="/img/insignias/galar/milo.webp">

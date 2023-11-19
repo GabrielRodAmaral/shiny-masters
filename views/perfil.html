@@ -27,21 +27,32 @@
         </button>
     </div>
 
-    <h1 class="page-title">PERFIL</h1>
+    <h1 class="page-title" id="page_title">PERFIL</h1>
 
-    <div class="page-content">
-        <div id="total_pokemon" class="catched-pkmn">
-        </div>
+    <div class="page-content" id="page_content">
+        <div id="total_pokemon" class="catched-pkmn"></div>
+        <div id="total_badges_region" class="catched-pkmn"></div>
+        <div id="total_badges_champion" class="catched-pkmn"></div>
         
-        <button>
+        
+        <button id="professor_analysis" class="button-content">
+            Análise do professor
+        </button>
+        
+        <button class="button-content">
             Alterar imagem de perfil
         </button>
-
-        <button>
+        
+        <button class="button-content">
             Deletar a conta
         </button>
     </div>
+    <canvas id="graphic1" style="width: 350px; height: 260px;" class="graphic1"></canvas>
+
+
+
 </body>
 </html>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/shinyBox/perfil.js"></script>

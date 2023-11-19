@@ -99,7 +99,7 @@ body {
 .progress-bar-live {
     width: 0%;
     height: 30px;
-    background-color: black;
+    background-color: greenyellow;
     text-align: center;
     line-height: 30px;
     color: white;
@@ -117,3 +117,16 @@ body {
     display: flex;
     justify-content: space-around;
 }
+
+.progress-bar-text {
+    position: absolute;
+    color: white;
+    height: auto;
+    font-size: 20px;
+    font-family: titles;
+    width: 80%;
+    text-align: center;
+    margin-top: auto;
+    
+}
+

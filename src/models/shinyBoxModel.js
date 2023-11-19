@@ -41,4 +41,24 @@ function registerPoke2(idShinyBox, idCreated) {
     });
 }
 
-module.exports = { registerPoke, registerPoke2 }
+function countAllPokemon(shinyBox) {
+    const sqlCommand = `
+    call countAllPokemon(?);
+    `;
+
+    console.log("Executando o comando SQL: " + sqlCommand);
+
+    return new Promise((resolve, reject) => {
+        database.query(sqlCommand, [shinyBox], (error, result) => {
+            if (error) {
+                console.error("Erro ao contar os Pokémon: ", error);
+                reject(error);
+            } else {
+                console.log("Contagem dos Pokémon realizada");
+                resolve(result);
+            }
+        });
+    });
+}
+
+module.exports = { registerPoke, registerPoke2, countAllPokemon }
