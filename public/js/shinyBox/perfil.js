@@ -570,37 +570,49 @@ let i4 = 0;
 let i5 = 0;
 let i6 = 0;
 let totalPokes = parseInt(sessionStorage.TOTAL_CAPTURED);
-let kantoPokes = parseInt(sessionStorage.TOTAL_KANTO);
-let johtoPokes = 29
-let hoennPokes = parseInt(sessionStorage.TOTAL_HOENN);
-let sinnohPokes = parseInt(sessionStorage.TOTAL_SINNOH);
-let unovaPokes = parseInt(sessionStorage.TOTAL_UNOVA);
-let kalosPokes = parseInt(sessionStorage.TOTAL_KALOS);
-let galarPokes = 29
-let morePokes = [{region: kantoPokes, name: "Kanto"}];
-let regionArray = [{region: kantoPokes, name: "Kanto"}, {region: johtoPokes, name: "Johto"}, {region: hoennPokes, name: "Hoenn"}, {region: sinnohPokes, name: "Sinnoh"}, {region: unovaPokes, name: "Unova"}, {region: kalosPokes, name: "Kalos"}, {region: galarPokes, name: "Galar"}]
+let kantoPokes = sessionStorage.TOTAL_KANTO;
+let johtoPokes = sessionStorage.TOTAL_JOHTO;
+let hoennPokes = sessionStorage.TOTAL_HOENN;
+let sinnohPokes = sessionStorage.TOTAL_SINNOH;
+let unovaPokes = sessionStorage.TOTAL_UNOVA;
+let kalosPokes = sessionStorage.TOTAL_KALOS;
+let galarPokes = sessionStorage.TOTAL_GALAR;
+
+let percentageKanto = Math.round((kantoPokes / 151) * 100);
+let percentageJohto = Math.round((johtoPokes / 100) * 100);
+let percentageHoenn = Math.round((hoennPokes / 135) * 100);
+let percentageSinnoh = Math.round((sinnohPokes / 107) * 100);
+let percentageUnova = Math.round((unovaPokes / 156) * 100);
+let percentageKalos = Math.round((kalosPokes / 72) * 100);
+let percentageGalar = Math.round((galarPokes / 89) * 100);
+
+let morePokes = [{region: percentageKanto, name: "Kanto"}];
+let regionArray = [{region: percentageKanto, name: "Kanto"}, {region: percentageJohto, name: "Johto"}, {region: percentageHoenn, name: "Hoenn"}, {region: percentageSinnoh, name: "Sinnoh"}, {region: percentageUnova, name: "Unova"}, {region: percentageKalos, name: "Kalos"}, {region: percentageGalar, name: "Galar"}];
+console.log(regionArray[0].region, regionArray[1].region, regionArray[2].region, regionArray[3].region, regionArray[4].region, regionArray[5].region, regionArray[6].region)
 
 for(let ind=1; ind<regionArray.length; ind++) {
     if(regionArray[ind].region>morePokes[0].region) {
         morePokes = [regionArray[ind]];
-    } else if (regionArray[ind].region === morePokes[0].region) {
+    } else if (regionArray[ind].region == morePokes[0].region) {
         morePokes.push(regionArray[ind]);
     }
 }
 let morePokesRegions = morePokes.map(region => region.name).join(", ");
 
 let phrase6Text = "";
-let phrase3Text = "";
+let phrase2Text = "";
+let phrase3Text = ""
 function analyseProfile() {
-    const phrase1Text = "Olá treinador!";
-    const phrase2Text = "Analisando seu perfil, percebi algumas coisas:";
+    const phrase1Text = "Olá treinador! Analisando seu perfil, percebi algumas coisas:";
     const phrase4Text = `Você possui ${qttChampionBadges} insígnias de campeão, você precisará de 7 para se tornar um Shiny Master.`;
     const phrase5Text = `No nosso mundo existem 810 espécies dePokémon shiny e você possui ${totalPokes}.`;
 
     if(morePokes.length>1) {
-        phrase3Text = `As regiões que você possui mais Pokémon são ${morePokesRegions}, essas devem ser suas regiões favoritas!`;
+        phrase2Text = `As regiões que você possui maior percentual de Pokémon são ${morePokesRegions},`;
+        phrase3Text = "essas devem ser suas regiões favoritas!"
     } else {
-        phrase3Text = `A região que você possui mais Pokémon é ${morePokesRegions}, essa deve ser sua região favorita!`;
+        phrase2Text = `A região que você possui mair percentual de Pokémon é ${morePokesRegions},`;
+        phrase3Text = "essa deve ser sua região favorita!"
     }
     
     if (totalPokes == 810) {
