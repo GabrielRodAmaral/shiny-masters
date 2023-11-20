@@ -129,7 +129,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Kanto`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -162,7 +164,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Johto`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -195,7 +199,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Hoenn`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -228,7 +234,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Sinnoh`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -261,7 +269,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Unova`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -294,7 +304,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Kalos`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -329,7 +341,9 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
-                            alert("Pokémon adicionado com sucesso")
+                            let pokeNameOrg = iptPokeName.value.toLowerCase();
+                            pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                            alert(`${pokeNameOrg} adicionado com sucesso a box de Galar`)
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);

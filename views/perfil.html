@@ -6,8 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/shinyBox/perfil.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div id="all_content">
     <div class="navbar-div">
         <img class="img-profile" src="/img/charizardShiny.png" alt="">
         <button class="btn-navbar">
@@ -47,12 +49,32 @@
             Deletar a conta
         </button>
     </div>
-    <canvas id="graphic1" style="width: 350px; height: 260px;" class="graphic1"></canvas>
+    <canvas id="graphic1" style="width: 29vw; height: 44vh;" class="graphic1"></canvas>
+    <canvas id="graphic2" style="width: 29vw; height: 44vh;" class="graphic2"></canvas>
+</div>
 
+    <section id="section_professor_analysis" class="section-professor-analysis">
+        <img src="../img/professorCarvalho.webp" class="img-professor" id="img_professor">
 
+        <div class="dialogue-container" id="dialogue_container">
+            <h1 class="professor-name">Professor Carvalho</h1>
+
+            <p id="professor_text" class="professor-text">
+                <span id="phrase1"></span> <br>
+                <span id="phrase2"></span> <br> <br>
+                <span id="phrase3"></span> <br> <br>
+                <span id="phrase4"></span> <br> <br>
+                <span id="phrase5"></span> <br>
+                <span id="phrase6"></span>
+            </p>
+
+            <button id="close_btn" class="close-btn">
+                Entendido
+            </button>
+        </div>
+    </section>
 
 </body>
 </html>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/shinyBox/perfil.js"></script>
