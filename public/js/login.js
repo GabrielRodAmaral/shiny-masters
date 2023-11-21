@@ -29,7 +29,17 @@ form.addEventListener("submit", (event) => {
                     getAllPokemon()
                 })
             } else {
-                console.log("Erro ao realizar o login");
+                Swal.fire({
+                    title: "Email ou senha inválidos!",
+                    text: "Caso não possua uma conta clique em cadastrar.",
+                    icon: "error",
+                    showCancelButton: true,
+                    cancelButtonText: "Cadastrar",
+                }).then((result) => {
+                    if (result.isDismissed && result.dismiss == Swal.DismissReason.cancel) {
+                        window.location.href = "/cadastro";
+                    }
+                });
                 res.text().then(text => {
                     console.error(text);
                 })

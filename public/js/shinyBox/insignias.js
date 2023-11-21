@@ -2,6 +2,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
     } else {
+        if (sessionStorage.SPRITE_PROFILE == undefined) {
+            img_profile.src = "/img/charizardShiny.png";
+        } else {
+            img_profile.src = sessionStorage.SPRITE_PROFILE;
+        }
         countAllPokemon();
     }
 })
@@ -155,25 +160,32 @@ function updateBadges() {
     if (percentageKanto >= 12.5) {
         kanto_badge1.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 25) {
+    }
+    if (percentageKanto >= 25) {
         kanto_badge2.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 37.5) {
+    }
+    if (percentageKanto >= 37.5) {
         kanto_badge3.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 50) {
+    }
+    if (percentageKanto >= 50) {
         kanto_badge4.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 62.5) {
+    }
+    if (percentageKanto >= 62.5) {
         kanto_badge5.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 75) {
+    }
+    if (percentageKanto >= 75) {
         kanto_badge6.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 87.5) {
+    }
+    if (percentageKanto >= 87.5) {
         kanto_badge7.style.opacity = "100%";
         qttBadgesKanto++;
-    } else if (percentageKanto >= 100) {
+    }
+    if (percentageKanto >= 100) {
         kanto_badge8.style.opacity = "100%";
         champion_badge1.style.opacity = "100%";
         qttChampionBadges++;
@@ -183,25 +195,32 @@ function updateBadges() {
     if (percentageJohto >= 12.5) {
         johto_badge1.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 25) {
+    }
+    if (percentageJohto >= 25) {
         johto_badge2.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 37.5) {
+    }
+    if (percentageJohto >= 37.5) {
         johto_badge3.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 50) {
+    }
+    if (percentageJohto >= 50) {
         johto_badge4.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 62.5) {
+    }
+    if (percentageJohto >= 62.5) {
         johto_badge5.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 75) {
+    }
+    if (percentageJohto >= 75) {
         johto_badge6.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 87.5) {
+    }
+    if (percentageJohto >= 87.5) {
         johto_badge7.style.opacity = "100%";
         qttBadgesJohto++;
-    } else if (percentageJohto >= 100) {
+    }
+    if (percentageJohto >= 100) {
         johto_badge8.style.opacity = "100%";
         champion_badge2.style.opacity = "100%";
         qttChampionBadges++;
@@ -211,25 +230,32 @@ function updateBadges() {
     if (percentageHoenn >= 12.5) {
         hoenn_badge1.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 25) {
+    }
+    if (percentageHoenn >= 25) {
         hoenn_badge2.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 37.5) {
+    }
+    if (percentageHoenn >= 37.5) {
         hoenn_badge3.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 50) {
+    }
+    if (percentageHoenn >= 50) {
         hoenn_badge4.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 62.5) {
+    }
+    if (percentageHoenn >= 62.5) {
         hoenn_badge5.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 75) {
+    }
+    if (percentageHoenn >= 75) {
         hoenn_badge6.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 87.5) {
+    }
+    if (percentageHoenn >= 87.5) {
         hoenn_badge7.style.opacity = "100%";
         qttBadgesHoenn++;
-    } else if (percentageHoenn >= 100) {
+    }
+    if (percentageHoenn >= 100) {
         hoenn_badge8.style.opacity = "100%";
         champion_badge3.style.opacity = "100%";
         qttChampionBadges++;
@@ -239,25 +265,32 @@ function updateBadges() {
     if (percentageSinnoh >= 12.5) {
         sinnoh_badge1.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 25) {
+    }
+    if (percentageSinnoh >= 25) {
         sinnoh_badge2.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 37.5) {
+    }
+    if (percentageSinnoh >= 37.5) {
         sinnoh_badge3.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 50) {
+    }
+    if (percentageSinnoh >= 50) {
         sinnoh_badge4.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 62.5) {
+    }
+    if (percentageSinnoh >= 62.5) {
         sinnoh_badge5.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 75) {
+    }
+    if (percentageSinnoh >= 75) {
         sinnoh_badge6.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 87.5) {
+    }
+    if (percentageSinnoh >= 87.5) {
         sinnoh_badge7.style.opacity = "100%";
         qttBadgesSinnoh++;
-    } else if (percentageSinnoh >= 100) {
+    }
+    if (percentageSinnoh >= 100) {
         sinnoh_badge8.style.opacity = "100%";
         champion_badge4.style.opacity = "100%";
         qttChampionBadges++;
@@ -267,25 +300,32 @@ function updateBadges() {
     if (percentageUnova >= 12.5) {
         unova_badge1.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 25) {
+    }
+    if (percentageUnova >= 25) {
         unova_badge2.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 37.5) {
+    }
+    if (percentageUnova >= 37.5) {
         unova_badge3.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 50) {
+    }
+    if (percentageUnova >= 50) {
         unova_badge4.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 62.5) {
+    }
+    if (percentageUnova >= 62.5) {
         unova_badge5.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 75) {
+    }
+    if (percentageUnova >= 75) {
         unova_badge6.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 87.5) {
+    }
+    if (percentageUnova >= 87.5) {
         unova_badge7.style.opacity = "100%";
         qttBadgesUnova++;
-    } else if (percentageUnova >= 100) {
+    }
+    if (percentageUnova >= 100) {
         unova_badge8.style.opacity = "100%";
         champion_badge5.style.opacity = "100%";
         qttChampionBadges++;
@@ -295,25 +335,32 @@ function updateBadges() {
     if (percentageKalos >= 12.5) {
         kalos_badge1.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 25) {
+    }
+    if (percentageKalos >= 25) {
         kalos_badge2.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 37.5) {
+    }
+    if (percentageKalos >= 37.5) {
         kalos_badge3.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 50) {
+    }
+    if (percentageKalos >= 50) {
         kalos_badge4.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 62.5) {
+    }
+    if (percentageKalos >= 62.5) {
         kalos_badge5.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 75) {
+    }
+    if (percentageKalos >= 75) {
         kalos_badge6.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 87.5) {
+    }
+    if (percentageKalos >= 87.5) {
         kalos_badge7.style.opacity = "100%";
         qttBadgesKalos++;
-    } else if (percentageKalos >= 100) {
+    }
+    if (percentageKalos >= 100) {
         kalos_badge8.style.opacity = "100%";
         champion_badge6.style.opacity = "100%";
         qttChampionBadges++;
@@ -323,25 +370,32 @@ function updateBadges() {
     if (percentageGalar >= 12.5) {
         galar_badge1.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 25) {
+    }
+    if (percentageGalar >= 25) {
         galar_badge2.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 37.5) {
+    }
+    if (percentageGalar >= 37.5) {
         galar_badge3.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 50) {
+    }
+    if (percentageGalar >= 50) {
         galar_badge4.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 62.5) {
+    }
+    if (percentageGalar >= 62.5) {
         galar_badge5.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 75) {
+    }
+    if (percentageGalar >= 75) {
         galar_badge6.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 87.5) {
+    }
+    if (percentageGalar >= 87.5) {
         galar_badge7.style.opacity = "100%";
         qttBadgesGalar++;
-    } else if (percentageGalar >= 100) {
+    }
+    if (percentageGalar >= 100) {
         galar_badge8.style.opacity = "100%";
         qttBadgesGalar++;
         champion_badge7.style.opacity = "100%";

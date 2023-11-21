@@ -42,14 +42,14 @@ function enterBox(req, res) {
         model.enterBox (email, password)
         .then(
             (result) => {
-                if (result) {
+                if (result.length>0) {
                     res.json({
                         id: result[0].idTreinador,
                         email: result[0].email,
                         fkShinyBox: result[0].fkShinyBox
                     });
                 } else {
-                    res.status(403).send("Email e/ou senha inválidos");
+                    res.status(400).send("Email e/ou senha inválidos");
                 }
             }
         ).catch(
@@ -71,8 +71,12 @@ function getPokes(req, res) {
         model.getPokes(fkBox)
         .then((result) => {
             if (result) {
+                const pokemon = result.map(pokemon => ({
+                    idPokemon: pokemon.idPokemon,
+                    sprite: pokemon.sprite
+                }));
                 res.json({
-                    pokemon: result
+                    pokemon: pokemon
                 })
             } else {
                 res.status(403).send("Pokemons não encontrados")
@@ -85,4 +89,22 @@ function getPokes(req, res) {
     }
 }
 
-module.exports = {register, enterBox, getPokes};
+function deleteUser(req, res) {
+    let fkBox = req.body.shinyBox;
+
+    if (fkBox == undefined) {
+        res.status(400).send("O id da shiny box não foi definido");
+    } else {
+        model.deleteUser (fkBox)
+        .then((result) => {
+            console.log("Usuario deletado com sucesso (controller)")
+            res.status(200).send("Usuario deletado com sucesso");
+        }) .catch((error) => {
+            console.log(error);
+            console.log("Erro ao deletar o usuario ", error.sqlMessage);
+            res.status(500).json(error.sqlMessage);
+        })
+    }
+}
+
+module.exports = {register, enterBox, getPokes, deleteUser};

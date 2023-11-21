@@ -57,7 +57,7 @@ function enterBox(email, password) {
                 } else {
                     console.log(result.length)
                     console.log("Login falhou");
-                    resolve(null);
+                    resolve(result);
             }
             }
         });
@@ -66,7 +66,7 @@ function enterBox(email, password) {
 
 function getPokes(fkBox) {
     let sqlCommand = `
-    SELECT pokemon.idPokemon FROM pokemon JOIN captura ON pokemon.id=captura.fkPokemon WHERE captura.fkShinyBox = ${fkBox}
+    SELECT pokemon.idPokemon, pokemon.sprite FROM pokemon JOIN captura ON pokemon.id=captura.fkPokemon WHERE captura.fkShinyBox = ${fkBox}
     `;
 
     return new Promise((resolve, reject) => {
@@ -88,4 +88,24 @@ function getPokes(fkBox) {
     });
 }
 
-module.exports = { register, enterBox, register2, getPokes};
+function deleteUser(fkBox) {
+    let sqlCommand = `
+    CALL deleteUser(?);
+    `;
+
+    console.log("Executando o comando SQL: " + sqlCommand);
+
+    return new Promise((resolve, reject) => {
+        database.query(sqlCommand, [fkBox], (error, result) => {
+            if (error) {
+                console.error("Erro deletar usuario (model):", error);
+                reject(error);
+            } else {
+                    resolve(result);
+                } 
+            
+        });
+    });
+}
+
+module.exports = { register, enterBox, register2, getPokes, deleteUser};

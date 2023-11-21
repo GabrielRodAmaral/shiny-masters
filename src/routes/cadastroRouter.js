@@ -13,4 +13,8 @@ router.post("/cadastrar", (req, res) => {
     usuarioController.register(req, res);
 })
 
+router.post("/deleteUser", (req, res) => {
+    usuarioController.deleteUser(req, res);
+})
+
 module.exports = router;

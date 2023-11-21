@@ -2,6 +2,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
     } else {
+        if (sessionStorage.SPRITE_PROFILE == undefined) {
+            img_profile.src = "/img/charizardShiny.png";
+        } else {
+            img_profile.src = sessionStorage.SPRITE_PROFILE;
+        }
         renderSprites();
     }
 })
@@ -128,10 +133,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Kanto`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Kanto`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -163,10 +176,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Johto`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Johto`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -198,10 +219,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Hoenn`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Hoenn`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -233,10 +262,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Sinnoh`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Sinnoh`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -268,10 +305,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Unova`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Unova`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -303,10 +348,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Kalos`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Kalos`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);
@@ -340,10 +393,18 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                     if (result.ok) {
                         result.json().then(json => {
                             pokeStorage.push(pokeId);
+                            pokeStorage.push({sprite: pokeSprite});
                             sessionStorage.setItem('POKEMON_CAPTURADOS', JSON.stringify(pokeStorage));
                             let pokeNameOrg = iptPokeName.value.toLowerCase();
                             pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
-                            alert(`${pokeNameOrg} adicionado com sucesso a box de Galar`)
+                            Swal.fire({
+                                title: "Gotcha!",
+                                text: `${pokeNameOrg} foi adicionado a box de Galar`,
+                                imageUrl: "/img/sweetAlert/pokeballCatch.gif",
+                                imageWidth: 500,
+                                imageHeight: 250,
+                                imageAlt: `${pokeNameOrg}`
+                              });
                         })
                     } else {
                         console.log("Erro ao adicionar Pokémon", result.status);

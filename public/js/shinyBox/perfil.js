@@ -2,14 +2,19 @@ window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
     } else {
-        total_pokemon.innerHTML = `
-        Pokémon shiny capturados: ${pokeStorage.length} de 810
-        `;
+        if (sessionStorage.SPRITE_PROFILE == undefined) {
+            img_profile.src = "/img/charizardShiny.png";
+        } else {
+            img_profile.src = sessionStorage.SPRITE_PROFILE;
+        }
         countAllPokemon();
     }
 })
 let pokeStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
 pokeStorage = pokeStorage.map(pokemon => pokemon.idPokemon);
+
+let spriteStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
+spriteStorage = spriteStorage.map(sprite => sprite.sprite);
 
 let pokeStorageLength = pokeStorage.length
 
@@ -529,6 +534,10 @@ function updateBadges() {
         },
     })
     
+    total_pokemon.innerHTML = `
+    Pokémon shiny capturados: ${totalPokes} de 810
+    `;
+
     total_badges_region.innerHTML = `
     Insígnias de região conquistadas: ${qttRegionBadges} de 56
     `;
@@ -605,20 +614,27 @@ let phrase3Text = ""
 function analyseProfile() {
     const phrase1Text = "Olá treinador! Analisando seu perfil, percebi algumas coisas:";
     const phrase4Text = `Você possui ${qttChampionBadges} insígnias de campeão, você precisará de 7 para se tornar um Shiny Master.`;
-    const phrase5Text = `No nosso mundo existem 810 espécies dePokémon shiny e você possui ${totalPokes}.`;
+    const phrase5Text = `No nosso mundo existem 810 espécies de Pokémon shiny e você possui ${totalPokes}.`;
 
-    if(morePokes.length>1) {
-        phrase2Text = `As regiões que você possui maior percentual de Pokémon são ${morePokesRegions},`;
-        phrase3Text = "essas devem ser suas regiões favoritas!"
-    } else {
-        phrase2Text = `A região que você possui mair percentual de Pokémon é ${morePokesRegions},`;
-        phrase3Text = "essa deve ser sua região favorita!"
-    }
+    
+
+        if (totalPokes == 0) {
+            phrase2Text = "Percebi que você ainda não capturou Pokémon de nenhuma região,";
+            phrase3Text = "recomendo começar por Johto, que é a região favorita do desenvolvedor desta aplicação!";
+        } else {
+            if (morePokes.length > 1) {
+                phrase2Text = `As regiões em que você possui maior percentual de Pokémon são ${morePokesRegions},`;
+                phrase3Text = "essas devem ser suas regiões favoritas!";
+            } else {
+                phrase2Text = `A região em que você possui maior percentual de Pokémon é ${morePokesRegions},`;
+                phrase3Text = "essa deve ser sua região favorita!";
+            }
+        }
     
     if (totalPokes == 810) {
         phrase6Text = "PARABÉNS por se tornar um verdadeiro Shiny Master!!"
     } else {
-        phrase6Text = "Ainda tem caminho trilhar!";
+        phrase6Text = "Ainda tem caminho a trilhar!";
     }
 
     if (i < phrase1Text.length) {
@@ -654,4 +670,100 @@ function analyseProfile() {
         i5 = 0;
         i6 = 0;
     }
+}
+
+const alterImgBtn = document.getElementById("alter_img_btn");
+
+function alterImg(spriteSelected) {
+    sessionStorage.SPRITE_PROFILE = spriteSelected
+    img_profile.src = sessionStorage.SPRITE_PROFILE;
+    window.location.reload();
+}
+
+alterImgBtn.addEventListener("click", () => {
+    let spriteStorageIntern = spriteStorage.map(sprite => {
+        if (typeof sprite == "string"){
+            return sprite;
+        }
+        return null;
+    });
+    spriteStorageIntern = spriteStorageIntern.filter(sprite => sprite != null);
+    console.log(spriteStorageIntern);
+    section_profile_images.style.display = "flex";
+    if (spriteStorageIntern.length == 0){
+        Swal.fire({
+            title: "Ainda não!",
+            text: "Você precisa capturar algum Pokémon para adicionar como uma foto de perfil.",
+            icon: "error",
+            didClose: () => {
+                section_profile_images.style.display = "none";
+              }
+          });
+    } else {
+        for (let i=0; i<spriteStorageIntern.length; i++) {
+            profile_images.innerHTML += `<img onclick="alterImg('${spriteStorageIntern[i]}')" src="${spriteStorageIntern[i]}" style="cursor:pointer;"></img>`
+        }
+    }
+})
+
+
+const closeImgProfile = document.getElementById("close_img_profile");
+
+closeImgProfile.addEventListener("click", () => {
+    window.location.reload();
+})
+
+const deleteUserBtn = document.getElementById("delete_user_button");
+
+deleteUserBtn.addEventListener("click", () => {
+    Swal.fire({
+        title: "Tem certeza?",
+        text: `Se clicar em excluir conta, sua conta será excluída permanentemente.`,
+        imageUrl: "/img/sweetAlert/fantasmasTristes.gif",
+        imageWidth: 500,
+        imageHeight: 250,
+        showCancelButton: true,
+        cancelButtonText: "Excluir Conta",
+    }).then((result) => {
+        if (result.isDismissed && result.dismiss == Swal.DismissReason.cancel) {
+            deleteUser();
+        }
+    });
+    
+})
+
+function deleteUser() {
+    let shinyBox = sessionStorage.FK_SHINY_BOX;
+    let datas = {
+        shinyBox: shinyBox
+    }
+
+    fetch("/cadastro/deleteUser", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(datas),
+    })
+        .then((result) => {
+            if (result.ok) {
+                console.log("Conta deletada");
+                Swal.fire({
+                    title: "Sua conta foi excluída!",
+                    text: "Você será redirecionado para tela inicial :(",
+                    icon: "success",
+                    didClose: () => {
+                        sessionStorage.clear();
+                        window.location.href = "/";
+                      }
+                  });
+            } else {
+                console.log("Erro ao deletar usuario");
+                res.text().then(text => {
+                    console.error(text);
+                })
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
 }

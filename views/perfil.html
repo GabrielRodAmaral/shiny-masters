@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/shinyBox/perfil.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
+" rel="stylesheet">
+<link rel="icon" href="/img/iconeSite.png">
 </head>
 <body>
     <div id="all_content">
     <div class="navbar-div">
-        <img class="img-profile" src="/img/charizardShiny.png" alt="">
+        <img id="img_profile" class="img-profile" src="" alt="">
         <button class="btn-navbar">
             Perfil
         </button>
@@ -41,11 +48,11 @@
             Análise do professor
         </button>
         
-        <button class="button-content">
+        <button class="button-content" id="alter_img_btn">
             Alterar imagem de perfil
         </button>
         
-        <button class="button-content">
+        <button id="delete_user_button" class="button-content">
             Deletar a conta
         </button>
     </div>
@@ -72,6 +79,11 @@
                 Entendido
             </button>
         </div>
+    </section>
+
+    <section id="section_profile_images" class="section-profile-images">
+        <button id="close_img_profile" class="close-img-profile">Fechar</button>
+        <div id="profile_images" class="profile-images"></div>
     </section>
 
 </body>

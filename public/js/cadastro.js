@@ -100,8 +100,14 @@ formulario.addEventListener("submit", (event) => {
                 if (!res.ok) {
                     throw new Error("Erro na solicitação " + res.status);
                 }
-                alert("Cadastro feito com sucesso, redirecionando para tela de login.");
-                window.location.href = "/login";
+                Swal.fire({
+                    title: "Sua conta foi criada!",
+                    text: "Você será redirecionado para tela de login",
+                    icon: "success",
+                    didClose: () => {
+                        window.location.href = "/login";
+                      }
+                  });
                 return res.json();  
             })
             .then((result) => {
