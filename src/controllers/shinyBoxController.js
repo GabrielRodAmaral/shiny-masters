@@ -60,4 +60,27 @@ function countAllPokemon(req, res) {
     }
 }
 
-module.exports = {registerPoke, countAllPokemon}
+function updateImgProfile(req, res) {
+    let imgProfile = req.body.imgProfile;
+    let fkShinyBox = req.body.fkShinyBox;
+
+    if (imgProfile == undefined) {
+        console.log("A imagem de perfil não foi definida")
+    } else {
+        model.updateImgProfile(imgProfile, fkShinyBox)
+        .then((result) => {
+            if (result.ok) {
+            res.status(200).send("Imagem de perfil Alterada com sucesso (controller)");
+            } else {
+                res.status(400).send("Erro ao alterar imagem de perfil (controller)")
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("Erro alterar imagem de perfil ", error.sqlMessage);
+            res.status(500).json(error.sqlMessage);
+        })
+    }
+}
+
+module.exports = {registerPoke, countAllPokemon, updateImgProfile}

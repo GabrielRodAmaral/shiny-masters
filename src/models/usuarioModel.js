@@ -21,14 +21,15 @@ function register() {
 }
 
 function register2(email, password, idCreated) {
+    let imgPerfil = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/249.png';
     let sqlCommand = `
-    INSERT INTO treinador (email, senha, fkShinyBox) VALUES (?, ?, ?);
+    INSERT INTO treinador (email, senha, imgPerfil, fkShinyBox) VALUES (?, ?, ?, ?);
     `;
 
     console.log("Executando o comando SQL: " + sqlCommand);
     
     return new Promise((resolve, reject) => {
-        database.query(sqlCommand, [email, password, idCreated], (error, result2) => {
+        database.query(sqlCommand, [email, password, imgPerfil, idCreated], (error, result2) => {
             if (error) {
                 console.error("Erro ao cadastrar:", error);
                 reject(error);
@@ -42,7 +43,7 @@ function register2(email, password, idCreated) {
 
 function enterBox(email, password) {
     let sqlCommand = `
-    SELECT idTreinador, email, senha, fkShinyBox FROM treinador WHERE email = '${email}' AND senha = '${password}'
+    SELECT idTreinador, email, senha, imgPerfil, fkShinyBox FROM treinador WHERE email = '${email}' AND senha = '${password}'
     `;
 
     return new Promise((resolve, reject) => {
@@ -108,4 +109,24 @@ function deleteUser(fkBox) {
     });
 }
 
-module.exports = { register, enterBox, register2, getPokes, deleteUser};
+function verifyUser(email) {
+    sqlCommand = `
+    SELECT * FROM treinador WHERE email = '${email}'
+    `;
+
+    console.log("Executando o comando SQL: " + sqlCommand);
+
+    return new Promise((resolve, reject) => {
+        database.query(sqlCommand, (error, result) => {
+            if (error) {
+                console.error("Erro ao verificar usuario (model):", error);
+                reject(error);
+            } else {
+                    resolve(result);
+                } 
+            
+        });
+    });
+}
+
+module.exports = { register, enterBox, register2, getPokes, deleteUser, verifyUser};

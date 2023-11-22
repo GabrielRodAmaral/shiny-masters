@@ -25,4 +25,8 @@ router.post("/countAllPokemon", (req, res) => {
     shinyBoxController.countAllPokemon(req, res);
 })
 
+router.post("/updateImgProfile", (req, res) => {
+    shinyBoxController.updateImgProfile(req, res);
+})
+
 module.exports = router;

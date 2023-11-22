@@ -17,4 +17,8 @@ router.post("/deleteUser", (req, res) => {
     usuarioController.deleteUser(req, res);
 })
 
+router.post("/verifyUser", (req, res) => {
+    usuarioController.verifyUser(req, res)
+})
+
 module.exports = router;

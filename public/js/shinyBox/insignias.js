@@ -2,11 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
     } else {
-        if (sessionStorage.SPRITE_PROFILE == undefined) {
-            img_profile.src = "/img/charizardShiny.png";
-        } else {
-            img_profile.src = sessionStorage.SPRITE_PROFILE;
-        }
+        img_profile.src = sessionStorage.IMG_PERFIL;
         countAllPokemon();
     }
 })

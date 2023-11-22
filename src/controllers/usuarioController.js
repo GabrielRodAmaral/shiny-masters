@@ -46,7 +46,8 @@ function enterBox(req, res) {
                     res.json({
                         id: result[0].idTreinador,
                         email: result[0].email,
-                        fkShinyBox: result[0].fkShinyBox
+                        fkShinyBox: result[0].fkShinyBox,
+                        imgPerfil: result[0].imgPerfil
                     });
                 } else {
                     res.status(400).send("Email e/ou senha inválidos");
@@ -107,4 +108,29 @@ function deleteUser(req, res) {
     }
 }
 
-module.exports = {register, enterBox, getPokes, deleteUser};
+function verifyUser(req, res) {
+    let email = req.body.email;
+
+    if (email == undefined) {
+        res.status(400).send("O email não foi definido");
+    } else {
+        model.verifyUser (email)
+        .then(
+            (result) => {
+                if (result.length>0) {
+                    res.status(400).send("Já existe um usuário com o email (controller)");
+                } else {
+                    res.status(200).send("Usuário pode ser cadastrado (controller)");
+                }
+            }
+        ).catch(
+            (error) => {
+                console.log(error);
+                console.log("Erro ", error.sqlMessage);
+                res.status(500).json(error.sqlMessage);
+            }
+        );
+    }
+}
+
+module.exports = {register, enterBox, getPokes, deleteUser, verifyUser};

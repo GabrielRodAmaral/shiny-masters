@@ -61,4 +61,24 @@ function countAllPokemon(shinyBox) {
     });
 }
 
-module.exports = { registerPoke, registerPoke2, countAllPokemon }
+function updateImgProfile(imgProfile, fkShinyBox) {
+    const sqlCommand = `
+    update treinador set imgPerfil = '${imgProfile}' WHERE fkShinyBox = ${fkShinyBox};
+    `;
+
+    console.log("Executando o comando SQL: " + sqlCommand);
+
+    return new Promise((resolve, reject) => {
+        database.query(sqlCommand, (error, result) => {
+            if (error) {
+                console.error("Erro ao alterar imagem de perfil (model): ", error);
+                reject(error);
+            } else {
+                console.log("Imagem de perfil alterada (model)");
+                resolve(result);
+            }
+        });
+    });
+}
+
+module.exports = { registerPoke, registerPoke2, countAllPokemon, updateImgProfile }

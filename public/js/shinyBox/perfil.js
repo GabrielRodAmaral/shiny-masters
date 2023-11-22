@@ -2,11 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.ID_USUARIO == undefined) {
         window.location.href = "/loginNaoEncontrado";
     } else {
-        if (sessionStorage.SPRITE_PROFILE == undefined) {
-            img_profile.src = "/img/charizardShiny.png";
-        } else {
-            img_profile.src = sessionStorage.SPRITE_PROFILE;
-        }
+        img_profile.src = sessionStorage.IMG_PERFIL;
         countAllPokemon();
     }
 })
@@ -15,8 +11,6 @@ pokeStorage = pokeStorage.map(pokemon => pokemon.idPokemon);
 
 let spriteStorage = JSON.parse(sessionStorage.POKEMON_CAPTURADOS);
 spriteStorage = spriteStorage.map(sprite => sprite.sprite);
-
-let pokeStorageLength = pokeStorage.length
 
 const goToBadges = document.getElementById("btn_badges");
 const goToBox = document.getElementById("btn_box");
@@ -578,7 +572,12 @@ let i3 = 0;
 let i4 = 0;
 let i5 = 0;
 let i6 = 0;
-let totalPokes = parseInt(sessionStorage.TOTAL_CAPTURED);
+let phrase6Text = "";
+let phrase2Text = "";
+let phrase3Text = ""
+function analyseProfile() {
+let totalPokes = sessionStorage.TOTAL_CAPTURED;
+totalPokes = Number(totalPokes);
 let kantoPokes = sessionStorage.TOTAL_KANTO;
 let johtoPokes = sessionStorage.TOTAL_JOHTO;
 let hoennPokes = sessionStorage.TOTAL_HOENN;
@@ -608,10 +607,6 @@ for(let ind=1; ind<regionArray.length; ind++) {
 }
 let morePokesRegions = morePokes.map(region => region.name).join(", ");
 
-let phrase6Text = "";
-let phrase2Text = "";
-let phrase3Text = ""
-function analyseProfile() {
     const phrase1Text = "Olá treinador! Analisando seu perfil, percebi algumas coisas:";
     const phrase4Text = `Você possui ${qttChampionBadges} insígnias de campeão, você precisará de 7 para se tornar um Shiny Master.`;
     const phrase5Text = `No nosso mundo existem 810 espécies de Pokémon shiny e você possui ${totalPokes}.`;
@@ -675,9 +670,32 @@ function analyseProfile() {
 const alterImgBtn = document.getElementById("alter_img_btn");
 
 function alterImg(spriteSelected) {
-    sessionStorage.SPRITE_PROFILE = spriteSelected
-    img_profile.src = sessionStorage.SPRITE_PROFILE;
-    window.location.reload();
+    sessionStorage.IMG_PERFIL = spriteSelected
+    img_profile.src = sessionStorage.IMG_PERFIL;
+    let datas = {
+        imgProfile: spriteSelected,
+        fkShinyBox: sessionStorage.FK_SHINY_BOX
+    }
+    fetch("ShinyBox/updateImgProfile", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(datas),
+    })
+    .then((result) => {
+        if (result.ok) {
+            console.log("Imagem de perfil alterada");
+            window.location.reload();
+        } else {
+            console.log("Erro ao Alterar imagem de perfil");
+            res.text().then(text => {
+                console.error(text);
+            })
+        }
+    }).catch((error) => {
+        console.log(error)
+    })
 }
 
 alterImgBtn.addEventListener("click", () => {

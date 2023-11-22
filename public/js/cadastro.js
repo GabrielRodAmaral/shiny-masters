@@ -89,33 +89,59 @@ formulario.addEventListener("submit", (event) => {
             password: pass
         }
 
-        fetch("/cadastro/cadastrar", {
+        fetch("/cadastro/verifyUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(datas),
         })
-            .then ((res) => {
-                if (!res.ok) {
-                    throw new Error("Erro na solicitação " + res.status);
-                }
+        .then((res) => {
+            if (!res.ok) {
+                console.log("dentro do then res.ok no login")
                 Swal.fire({
-                    title: "Sua conta foi criada!",
-                    text: "Você será redirecionado para tela de login",
-                    icon: "success",
-                    didClose: () => {
+                    title: "O email fornecido já está sendo utilizado em uma conta.",
+                    text: "Clique em Login se deseja ser redirecionado para tela de login.",
+                    icon: "error",
+                    showCancelButton: true,
+                    cancelButtonText: "Login",
+                }).then((result) => {
+                    if (result.isDismissed && result.dismiss == Swal.DismissReason.cancel) {
                         window.location.href = "/login";
-                      }
-                  });
-                return res.json();  
-            })
-            .then((result) => {
-                console.log("result: ", result);
-            }) 
-            .catch((error) => {
-                console.error("Erro na solicitação ", error);
-            })
+                    }
+                });
+            } else {
+                fetch("/cadastro/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(datas),
+                })
+                    .then ((res) => {
+                        if (!res.ok) {
+                            throw new Error("Erro na solicitação " + res.status);
+                        }
+                        Swal.fire({
+                            title: "Sua conta foi criada!",
+                            text: "Você será redirecionado para tela de login",
+                            icon: "success",
+                            didClose: () => {
+                                window.location.href = "/login";
+                              }
+                          });
+                        return res.json();  
+                    })
+                    .then((result) => {
+                        console.log("result: ", result);
+                    }) 
+                    .catch((error) => {
+                        console.error("Erro na solicitação ", error);
+                    })
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 })
 
