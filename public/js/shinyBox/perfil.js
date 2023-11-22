@@ -740,6 +740,7 @@ deleteUserBtn.addEventListener("click", () => {
         imageUrl: "/img/sweetAlert/fantasmasTristes.gif",
         imageWidth: 500,
         imageHeight: 250,
+        confirmButtonText: "Cancelar",
         showCancelButton: true,
         cancelButtonText: "Excluir Conta",
     }).then((result) => {
