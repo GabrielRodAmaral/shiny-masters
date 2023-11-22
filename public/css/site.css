@@ -23,7 +23,7 @@ body::-webkit-scrollbar-track {
     position: fixed;
     height: 70px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +51,7 @@ body::-webkit-scrollbar-track {
 }
 
 section {
-    background-image: url("../img/backgroundSite.webp");
+    background-image: url("https://e0.pxfuel.com/wallpapers/666/1004/desktop-wallpaper-pokemon-lugia-black-background-high-quality.jpg");
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -80,7 +80,7 @@ section {
     height: 400px;
     width: 70%;
     border-radius: 50px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,7 +99,7 @@ section {
     height: 400px;
     width: 70%;
     border-radius: 50px 0 0 50px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,7 +116,7 @@ section {
     border-radius: 6px;
 }
 .div-methods::-webkit-scrollbar-track {
-    background-color: black;
+    background-color: gray;
 }
 
 .title-method {
@@ -131,7 +131,7 @@ section {
     height: 400px;
     width: 70%;
     border-radius: 50px 0 0 50px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +140,7 @@ section {
 
 .text-content-last {
     color: white;
-    padding-top: 20%;
+    padding-top: 35%;
     padding-bottom: 50px;
     font-size: 24px;
     width: 70%;
@@ -156,5 +156,14 @@ section {
     border-radius: 6px;
 }
 .div-principal-last::-webkit-scrollbar-track {
+    background-color: gray;
+}
+
+.footer {
+    height: 15vh;
+    width: 100vw;
     background-color: black;
+    color: white;
+    font-family: titles;
+    font-size: 25px;
 }
