@@ -4,8 +4,9 @@
 }
 
 body {
-    background-image: url(/img/backgroundSite.webp);
-    background-size: cover;
+    /* background-image: url(/img/backgroundSite.webp);
+    background-size: cover; */
+    background-color:#0f0c0c;
 }
 
 .navbar-div {
@@ -86,14 +87,12 @@ body {
     position: absolute;
     margin-left: 16vw;
     margin-top: 55vh;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .graphic2 {
     position: absolute;
     margin-left: 70vw;
     margin-top: 55vh;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .section-professor-analysis {

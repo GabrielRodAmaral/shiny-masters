@@ -4,8 +4,9 @@
 }
 
 body {
-    background-image: url(/img/backgroundSite.webp);
-    background-size: cover;
+    /* background-image: url(/img/backgroundSite.webp);
+    background-size: cover; */
+    background-color:#0f0c0c;
 }
 
 .navbar-div {
