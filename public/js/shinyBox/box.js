@@ -107,7 +107,16 @@ btnAddPoke.addEventListener("click", function addPokemon() {
         return pokemon;
     });
             if (pokeStorage.includes(pokeId) || pokeStorageIntern.includes(pokeId)) {
-                alert(`Pokémon com ID ${pokeId} já existe em pokeStorage. Ignorando a inserção.`);
+                let pokeNameOrg = iptPokeName.value.toLowerCase();
+                pokeNameOrg = pokeNameOrg[0].toUpperCase() + pokeNameOrg.substring(1);
+                Swal.fire({
+                    title: "Opa!",
+                    text: `${pokeNameOrg} já foi adicionado a Shiny Box!`,
+                    imageUrl: "/img/sweetAlert/pikachuNao.gif",
+                    imageWidth: 500,
+                    imageHeight: 250,
+                    imageAlt: `${pokeNameOrg}`,
+                  })
             } else if (pokeId < 152) {
                 box_kanto.innerHTML += `<img src="${pokeInfo.pokeSprite}"></img>`;
                 
@@ -140,6 +149,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -182,7 +195,11 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageUrl: "/img/sweetAlert/pokeballCatch.gif",
                                 imageWidth: 500,
                                 imageHeight: 250,
-                                imageAlt: `${pokeNameOrg}`
+                                imageAlt: `${pokeNameOrg}`,
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -226,6 +243,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -269,6 +290,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -312,6 +337,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -355,6 +384,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
@@ -400,6 +433,10 @@ btnAddPoke.addEventListener("click", function addPokemon() {
                                 imageWidth: 500,
                                 imageHeight: 250,
                                 imageAlt: `${pokeNameOrg}`
+                              }).then((result) => {
+                                if (result.isConfirmed || result.isDismissed) {
+                                  location.reload();
+                                }
                               });
                         })
                     } else {
