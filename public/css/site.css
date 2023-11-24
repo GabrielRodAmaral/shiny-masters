@@ -51,7 +51,7 @@ body::-webkit-scrollbar-track {
 }
 
 section {
-    background-image: url("https://e0.pxfuel.com/wallpapers/666/1004/desktop-wallpaper-pokemon-lugia-black-background-high-quality.jpg");
+    background-image: url("/img/backgroundLugia.jpg");
     background-size: cover;
     height: 100vh;
     width: 100vw;

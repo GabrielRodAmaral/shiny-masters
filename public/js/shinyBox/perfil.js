@@ -365,7 +365,6 @@ function updateBadges() {
     if (percentageGalar >= 100) {
         qttBadgesGalar++;
         qttChampionBadges++;
-        qttBadgesGalar++;
         qttRegionBadges++;
     }
 
