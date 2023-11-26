@@ -44,20 +44,38 @@ function renderSprites() {
         })
         .then(result => {
             const pokeSprite = result.sprites.front_shiny;
+            const pokeName = result.name
+            const kantoFragment = document.createDocumentFragment();
+            const johtoFragment = document.createDocumentFragment();
+            const hoennFragment = document.createDocumentFragment();
+            const sinnohFragment = document.createDocumentFragment();
+            const unovaFragment = document.createDocumentFragment();
+            const kalosFragment = document.createDocumentFragment();
+            const galarFragment = document.createDocumentFragment();
+            const sprite = document.createElement("img");
+            sprite.src = pokeSprite;
+            sprite.title = pokeName;
             if (pokeStorageIntern[i]<152) {
-                box_kanto.innerHTML += `<img src="${pokeSprite}"></img>`;
+                kantoFragment.appendChild(sprite);
+                box_kanto.appendChild(kantoFragment);
             } else if (pokeStorageIntern[i]<252) {
-                box_johto.innerHTML += `<img src="${pokeSprite}"></img>`;
+                johtoFragment.appendChild(sprite);
+                box_johto.appendChild(johtoFragment);
             } else if (pokeStorageIntern[i]<387) {
-                box_hoenn.innerHTML += `<img src="${pokeSprite}"></img>`;
+                hoennFragment.appendChild(sprite);
+                box_hoenn.appendChild(hoennFragment);
             } else if (pokeStorageIntern[i]<494) {
-                box_sinnoh.innerHTML += `<img src="${pokeSprite}"></img>`;
+                sinnohFragment.appendChild(sprite);
+                box_sinnoh.appendChild(sinnohFragment);
             } else if (pokeStorageIntern[i]<650) {
-                box_unova.innerHTML += `<img src="${pokeSprite}"></img>`;
+                unovaFragment.appendChild(sprite);
+                box_unova.appendChild(unovaFragment);
             } else if (pokeStorageIntern[i]<722) {
-                box_kalos.innerHTML += `<img src="${pokeSprite}"></img>`;
+                kalosFragment.appendChild(sprite);
+                box_kalos.appendChild(kalosFragment);
             } else {
-                box_galar.innerHTML += `<img src="${pokeSprite}"></img>`;
+                galarFragment.appendChild(sprite);
+                box_galar.appendChild(galarFragment);
             }
         })
         .catch(error => {

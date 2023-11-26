@@ -656,8 +656,8 @@ for(let ind=1; ind<regionArray.length; ind++) {
 let morePokesRegions = morePokes.map(region => region.name).join(", ");
 
     const phrase1Text = "Olá treinador! Analisando seu perfil, percebi algumas coisas:";
-    const phrase4Text = `Você possui ${qttChampionBadges} insígnias de campeão, você precisará de 7 para se tornar um Shiny Master.`;
-    const phrase5Text = `No nosso mundo existem 810 espécies de Pokémon shiny e você possui ${totalPokes}.`;
+    let phrase4Text = `Você possui ${qttChampionBadges} insígnias de campeão, você precisará de 7 para se tornar um Shiny Master.`;
+    let phrase5Text = `No nosso mundo existem 810 espécies de Pokémon shiny e você possui ${totalPokes}.`;
 
     
 
@@ -675,7 +675,11 @@ let morePokesRegions = morePokes.map(region => region.name).join(", ");
         }
     
     if (totalPokes == 810) {
-        phrase6Text = "PARABÉNS por se tornar um verdadeiro Shiny Master!!"
+        phrase2Text = `Você capturou todos os Pokémon de cada uma das regiões,`;
+        phrase3Text = `isso é impressionante!`;
+        phrase4Text = `Você conquistou todas as ${qttChampionBadges} insígnias de campeão, se tornando assim um Shiny Master.`;
+        phrase5Text = `Você conseguiu capturar todas as 810 espécies de Pokémon existentes!!`;
+        phrase6Text = `PARABÉNS por se tornar um verdadeiro Shiny Master!!`;
     } else {
         phrase6Text = "Ainda tem caminho a trilhar!";
     }
@@ -746,6 +750,8 @@ function alterImg(spriteSelected) {
     })
 }
 
+
+
 alterImgBtn.addEventListener("click", () => {
     let spriteStorageIntern = spriteStorage.map(sprite => {
         if (typeof sprite == "string"){
@@ -753,8 +759,18 @@ alterImgBtn.addEventListener("click", () => {
         }
         return null;
     });
-    spriteStorageIntern = spriteStorageIntern.filter(sprite => sprite != null);
-    console.log(spriteStorageIntern);
+
+    const fragmentImgProfile = document.createDocumentFragment();
+    for (let i = 0; i < spriteStorageIntern.length; i++) {
+        const imgOption = document.createElement("img");
+        imgOption.onclick = () => alterImg(spriteStorageIntern[i]);
+        imgOption.src = spriteStorageIntern[i];
+        imgOption.style.cursor = 'pointer';
+        fragmentImgProfile.appendChild(imgOption);
+    }
+    profile_images.appendChild(fragmentImgProfile);
+
+
     section_profile_images.style.display = "flex";
     if (spriteStorageIntern.length == 0){
         Swal.fire({
@@ -765,10 +781,6 @@ alterImgBtn.addEventListener("click", () => {
                 section_profile_images.style.display = "none";
               }
           });
-    } else {
-        for (let i=0; i<spriteStorageIntern.length; i++) {
-            profile_images.innerHTML += `<img onclick="alterImg('${spriteStorageIntern[i]}')" src="${spriteStorageIntern[i]}" style="cursor:pointer;"></img>`
-        }
     }
 })
 
