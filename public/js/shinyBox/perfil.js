@@ -759,6 +759,7 @@ alterImgBtn.addEventListener("click", () => {
         }
         return null;
     });
+    spriteStorageIntern = spriteStorageIntern.filter(sprite => sprite != null);
 
     const fragmentImgProfile = document.createDocumentFragment();
     for (let i = 0; i < spriteStorageIntern.length; i++) {
