@@ -48,23 +48,22 @@ INSERT INTO regiao VALUES
     (6, 'kalos'),
     (7, 'galar');
 
-drop database shinyMasters;
-select * from shinyBox;
-select * from treinador;
-select * from regiao;
-select * from pokemon;
-select * from captura;
+-- select * from shinyBox;
+-- select * from treinador;
+-- select * from regiao;
+-- select * from pokemon;
+-- select * from captura;
 
 
-select fkPokemon FROM captura where fkShinyBox = 1;
-select count(fkPokemon) from captura where fkShinyBox=1;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=1;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=2;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=3;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=4;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=5;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=6;
-select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=7;
+-- select fkPokemon FROM captura where fkShinyBox = 1;
+-- select count(fkPokemon) from captura where fkShinyBox=1;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=1;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=2;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=3;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=4;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=5;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=6;
+-- select count(distinct(pokemon.idPokemon)) from pokemon join captura on pokemon.id=captura.fkPokemon where captura.fkShinyBox=1 and pokemon.fkRegiao=7;
 
 DELIMITER $$
 CREATE PROCEDURE countAllPokemon(IN shinyBox INT)
@@ -121,9 +120,5 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL deleteUser(7);
-call countAllPokemon(1);
-DROP PROCEDURE IF EXISTS deleteUser;
-DROP PROCEDURE IF EXISTS countAllPokemon;
-truncate table shinyBox;
-truncate table treinador;
+-- CALL deleteUser(7);
+-- CALL countAllPokemon(1);
