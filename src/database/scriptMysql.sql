@@ -12,6 +12,7 @@ idTreinador int auto_increment,
 email varchar(45) unique,
 senha varchar(45),
 fkShinyBox int,
+imgPerfil varchar(250),
 primary key (idTreinador, fkShinyBox),
 constraint fkShinyBox foreign key (fkShinyBox) references shinyBox(idShinyBox)
 );
